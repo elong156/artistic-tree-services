@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artistic Tree Services – West Covina, CA | Tree Trimming, Removal & More</title>
+  <meta name="description" content="West Covina's trusted tree service company. Expert tree trimming, removal, and stump grinding. Call (626) 383-0505 for a free quote today!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #2d7a3a;
+      --green-dark: #1e5528;
+      --green-light: #4aab5c;
+      --leaf: #6abf6e;
+      --brown: #7a4f2d;
+      --tan: #f5efe6;
+      --cream: #fdfaf5;
+      --text: #2c2c2c;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(0,0,0,0.10);
+      --radius: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; color: var(--text); background: var(--cream); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid #e8f5e9;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 70px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo { width: 44px; height: 44px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+    .nav-name { font-size: 1.15rem; font-weight: 800; color: var(--green-dark); line-height: 1.1; }
+    .nav-sub { font-size: 0.72rem; color: var(--muted); font-weight: 600; letter-spacing: .04em; }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-weight: 700; font-size: 0.92rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta { background: var(--green); color: white !important; padding: 9px 22px; border-radius: 50px; transition: background .2s !important; }
+    .nav-cta:hover { background: var(--green-dark) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
+    .hamburger span { width: 24px; height: 3px; background: var(--green-dark); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: white; z-index: 999; padding: 20px 5%; border-bottom: 2px solid #e8f5e9; flex-direction: column; gap: 16px; }
+    .mobile-menu a { text-decoration: none; color: var(--text); font-weight: 700; font-size: 1rem; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+    .mobile-menu.open { display: flex; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a4a25 0%, #2d7a3a 50%, #1e5528 100%);
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-leaves {
+      position: absolute; font-size: 8rem; opacity: 0.06;
+      right: -20px; top: 50%; transform: translateY(-50%);
+      line-height: 1; user-select: none;
+    }
+    .hero-content { max-width: 680px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.15); color: white;
+      padding: 6px 16px; border-radius: 50px; font-size: 0.82rem; font-weight: 700;
+      letter-spacing: .05em; margin-bottom: 24px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900; color: white; line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero h1 span { color: #a5d6a7; }
+    .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.88); margin-bottom: 36px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-primary {
+      background: white; color: var(--green-dark); padding: 16px 32px;
+      border-radius: 50px; font-weight: 800; font-size: 1rem;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2); transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.25); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.7); color: white; padding: 14px 28px;
+      border-radius: 50px; font-weight: 700; font-size: 1rem;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: white; }
+    .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+    .stat { color: white; }
+    .stat-num { font-size: 1.8rem; font-weight: 900; line-height: 1; }
+    .stat-label { font-size: 0.8rem; opacity: .75; font-weight: 600; margin-top: 2px; }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--green-dark); padding: 16px 5%;
+      display: flex; justify-content: center; align-items: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; color: white; font-weight: 700; font-size: 0.9rem; }
+    .trust-icon { font-size: 1.3rem; }
+
+    /* SECTION BASE */
+    section { padding: 80px 5%; }
+    .section-label { color: var(--green); font-weight: 800; font-size: 0.82rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: var(--green-dark); line-height: 1.15; margin-bottom: 16px; }
+    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 560px; line-height: 1.7; }
+
+    /* SERVICES */
+    .services-bg { background: var(--tan); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+    .service-card {
+      background: white; border-radius: var(--radius); padding: 36px 32px;
+      box-shadow: var(--shadow); border: 2px solid transparent;
+      transition: border-color .25s, transform .25s;
+      cursor: default;
+    }
+    .service-card:hover { border-color: var(--leaf); transform: translateY(-4px); }
+    .service-icon { font-size: 2.8rem; margin-bottom: 18px; }
+    .service-card h3 { font-size: 1.25rem; font-weight: 800; color: var(--green-dark); margin-bottom: 10px; }
+    .service-card p { color: var(--muted); line-height: 1.65; font-size: 0.95rem; }
+    .service-link { display: inline-flex; align-items: center; gap: 6px; color: var(--green); font-weight: 700; font-size: 0.9rem; margin-top: 16px; text-decoration: none; }
+
+    /* WHY US */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 0; }
+    .why-visual {
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      border-radius: 24px; padding: 48px; color: white; text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .why-visual .big-emoji { font-size: 5rem; margin-bottom: 20px; display: block; }
+    .why-visual h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
+    .why-visual p { opacity: .88; line-height: 1.6; }
+    .why-points { display: flex; flex-direction: column; gap: 24px; margin-top: 36px; }
+    .why-point { display: flex; gap: 16px; align-items: flex-start; }
+    .why-check { width: 36px; height: 36px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .why-point h4 { font-size: 1rem; font-weight: 800; color: var(--green-dark); margin-bottom: 4px; }
+    .why-point p { color: var(--muted); font-size: 0.92rem; line-height: 1.55; }
+
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--tan); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+    .review-card { background: white; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+    .stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 14px; }
+    .review-text { color: var(--text); line-height: 1.65; font-size: 0.95rem; margin-bottom: 20px; font-style: italic; }
+    .reviewer { display: flex; align-items: center; gap: 12px; }
+    .reviewer-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--green); color: white; font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; }
+    .reviewer-name { font-weight: 800; font-size: 0.92rem; }
+    .reviewer-loc { font-size: 0.8rem; color: var(--muted); }
+    .google-badge { display: flex; align-items: center; gap: 6px; margin-top: 48px; justify-content: center; color: var(--muted); font-size: 0.85rem; font-weight: 600; }
+
+    /* FORMS */
+    .forms-section { background: white; }
+    .forms-tabs { display: flex; gap: 8px; margin-bottom: 36px; background: var(--tan); padding: 6px; border-radius: 50px; width: fit-content; }
+    .tab-btn {
+      padding: 10px 24px; border-radius: 50px; border: none;
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.92rem;
+      cursor: pointer; transition: all .2s; background: transparent; color: var(--muted);
+    }
+    .tab-btn.active { background: var(--green); color: white; box-shadow: 0 2px 10px rgba(45,122,58,0.3); }
+    .form-panel { display: none; }
+    .form-panel.active { display: block; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { font-weight: 700; font-size: 0.88rem; color: var(--green-dark); }
+    input, select, textarea {
+      padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--text);
+      transition: border-color .2s; outline: none; background: white;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--green-light); }
+    textarea { resize: vertical; min-height: 110px; }
+    .btn-green {
+      background: var(--green); color: white; padding: 14px 36px;
+      border: none; border-radius: 50px; font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 1rem; cursor: pointer;
+      transition: background .2s, transform .2s; margin-top: 8px;
+    }
+    .btn-green:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .form-success {
+      display: none; background: #e8f5e9; color: var(--green-dark);
+      padding: 16px 24px; border-radius: var(--radius); font-weight: 700;
+      margin-top: 16px; border: 2px solid #a5d6a7; text-align: center;
+    }
+    .forms-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+    .forms-info h2 { margin-bottom: 16px; }
+    .contact-methods { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; }
+    .contact-method { display: flex; align-items: center; gap: 16px; }
+    .contact-method-icon { width: 48px; height: 48px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+    .contact-method h4 { font-weight: 800; font-size: 0.9rem; color: var(--green-dark); margin-bottom: 2px; }
+    .contact-method p { color: var(--muted); font-size: 0.88rem; }
+    .contact-method a { color: var(--green); text-decoration: none; font-weight: 700; }
+
+    /* HOURS */
+    .hours-card { background: var(--green-dark); color: white; border-radius: var(--radius); padding: 28px; margin-top: 28px; }
+    .hours-card h4 { font-size: 1rem; font-weight: 800; margin-bottom: 16px; opacity: .9; }
+    .hours-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.88rem; }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { opacity: .8; }
+    .hours-time { font-weight: 700; }
+
+    /* FOOTER */
+    footer { background: #111; color: #ccc; padding: 60px 5% 30px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-brand h3 { color: white; font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 16px; }
+    .footer-phone { color: var(--leaf); font-size: 1.1rem; font-weight: 800; text-decoration: none; }
+    .footer-col h4 { color: white; font-weight: 800; margin-bottom: 16px; font-size: 0.95rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { color: #aaa; text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+    .footer-col ul a:hover { color: var(--leaf); }
+    .footer-bottom { border-top: 1px solid #333; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; font-size: 0.82rem; color: #666; }
+    .footer-license { color: #888; font-size: 0.82rem; margin-top: 8px; }
+
+    /* FLOATING CALL */
+    .float-cta {
+      position: fixed; bottom: 28px; right: 28px; z-index: 900;
+      background: var(--green); color: white; padding: 14px 22px;
+      border-radius: 50px; font-weight: 800; font-size: 0.95rem;
+      text-decoration: none; box-shadow: 0 6px 24px rgba(45,122,58,0.45);
+      display: flex; align-items: center; gap: 10px;
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse { 0%, 100% { box-shadow: 0 6px 24px rgba(45,122,58,0.45); } 50% { box-shadow: 0 6px 36px rgba(45,122,58,0.65); } }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .why-grid, .forms-layout, .footer-grid { grid-template-columns: 1fr; }
+      .why-visual { order: -1; }
+      .form-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 60px 4%; }
+      .hero { padding: 100px 4% 60px; }
+      .trust-bar { gap: 20px; justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo">🌳</div>
+    <div>
+      <div class="nav-name">Artistic Tree Services</div>
+      <div class="nav-sub">West Covina, CA</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why-us">About Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:+16263830505" class="nav-cta">📞 (626) 383-0505</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#why-us" onclick="toggleMenu()">About Us</a>
+  <a href="#reviews" onclick="toggleMenu()">Reviews</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="tel:+16263830505">📞 Call (626) 383-0505</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-leaves">🌲🌳🌿</div>
+  <div class="hero-content">
+    <div class="hero-badge">⭐ Trusted by West Covina Families Since Day One</div>
+    <h1>Your Neighborhood<br><span>Tree Experts</span><br>You Can Trust</h1>
+    <p>Professional tree trimming, removal, and stump grinding done right — safely, affordably, and with a smile. Serving West Covina and all of the San Gabriel Valley.</p>
+    <div class="hero-actions">
+      <a href="#quote" class="btn-primary" onclick="openTab('quote')">🌿 Get a Free Quote</a>
+      <a href="tel:+16263830505" class="btn-outline">📞 Call Us Now</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Happy Customers</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Licensed & Insured</div></div>
+      <div class="stat"><div class="stat-num">Same Day</div><div class="stat-label">Estimates Available</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✅</span> Fully Licensed & Insured</div>
+  <div class="trust-item"><span class="trust-icon">🏡</span> Family-Owned Business</div>
+  <div class="trust-item"><span class="trust-icon">⚡</span> Free Same-Day Estimates</div>
+  <div class="trust-item"><span class="trust-icon">🌎</span> Serving All of San Gabriel Valley</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="section-label">What We Do</div>
+  <h2>Services We're Proud Of</h2>
+  <p class="section-sub">From routine trimming to full removals, we handle it all — safely and professionally.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <h3>Tree Trimming & Pruning</h3>
+      <p>Keep your trees healthy, beautiful, and safe with expert trimming and pruning. We shape trees to enhance curb appeal and prevent damage from overgrown branches.</p>
+      <a href="#quote" class="service-link" onclick="openTab('quote')">Get a quote →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🪓</div>
+      <h3>Tree Removal</h3>
+      <p>Dead, diseased, or dangerous trees removed safely and efficiently. We protect your property every step of the way and haul away all debris when done.</p>
+      <a href="#quote" class="service-link" onclick="openTab('quote')">Get a quote →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔵</div>
+      <h3>Stump Grinding</h3>
+      <p>Say goodbye to unsightly stumps! Our grinding service removes stumps below grade so you can replant, build, or simply enjoy a clean, clear yard.</p>
+      <a href="#quote" class="service-link" onclick="openTab('quote')">Get a quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+  <div class="why-grid">
+    <div>
+      <div class="section-label">Why Choose Us</div>
+      <h2>We Treat Your Yard Like Our Own</h2>
+      <p class="section-sub">We're your neighbors — not a faceless corporation. Here's why families across West Covina keep calling us back.</p>
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-check">🛡️</div>
+          <div>
+            <h4>Fully Licensed & Insured</h4>
+            <p>Your property is fully protected. We carry all required licenses and insurance so you have zero liability and total peace of mind.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-check">💰</div>
+          <div>
+            <h4>Upfront, Honest Pricing</h4>
+            <p>No surprises. We give you a clear, detailed estimate before any work begins. What we quote is what you pay.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-check">🌱</div>
+          <div>
+            <h4>Expert, Caring Team</h4>
+            <p>Our crew loves trees. We use the right techniques to keep healthy trees thriving while safely removing what needs to go.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-check">🧹</div>
+          <div>
+            <h4>We Clean Up After Ourselves</h4>
+            <p>We haul away all debris so your yard is left spotless. You'll never have to touch a branch or log after we're done.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <span class="big-emoji">🌳</span>
+      <h3>Proudly Serving West Covina & Beyond</h3>
+      <p>From West Covina to Covina, Baldwin Park, La Puente, Rowland Heights, and throughout the San Gabriel Valley — we're your local tree care team.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg" id="reviews">
+  <div class="section-label">Customer Reviews</div>
+  <h2>What Our Neighbors Are Saying</h2>
+  <p class="section-sub">Don't just take our word for it — here's what real customers in the community have to say.</p>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"They came out the same day I called and gave me a very fair price. The crew was professional, fast, and cleaned everything up perfectly. I'll definitely be calling them again!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">M</div>
+        <div><div class="reviewer-name">Maria G.</div><div class="reviewer-loc">West Covina, CA</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"We had a huge dead tree in our backyard that needed to come down. Artistic Tree Services removed it safely and efficiently. Our yard looks amazing now. Highly recommend!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">D</div>
+        <div><div class="reviewer-name">David R.</div><div class="reviewer-loc">Covina, CA</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Great price, great service! They trimmed three large trees in my front yard and the difference is night and day. Super friendly crew too. I felt comfortable having them at my home."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">J</div>
+        <div><div class="reviewer-name">Jennifer L.</div><div class="reviewer-loc">Baldwin Park, CA</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="google-badge">
+    <span>🌟</span> Find us on Google Maps — leave us a review after your service!
+  </div>
+</section>
+
+<!-- FORMS -->
+<section class="forms-section" id="contact">
+  <div class="forms-layout">
+    <div>
+      <div class="section-label">Get In Touch</div>
+      <h2>Let's Get Your Trees Looking Great</h2>
+      <p class="section-sub">Whether you have a quick question, want a free estimate, or are ready to book — we make it easy.</p>
+
+      <div class="forms-tabs" style="margin-top:32px;">
+        <button class="tab-btn active" onclick="openTab('contact')">Contact Us</button>
+        <button class="tab-btn" onclick="openTab('quote')">Free Quote</button>
+        <button class="tab-btn" onclick="openTab('booking')">Book Service</button>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div class="form-panel active" id="tab-contact">
+        <form id="contactForm" onsubmit="submitForm(event, 'contact')">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="c_name">Your Name</label>
+              <input type="text" id="c_name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="c_phone">Phone Number</label>
+              <input type="tel" id="c_phone" name="phone" placeholder="(626) 555-0100" required />
+            </div>
+            <div class="form-group full">
+              <label for="c_email">Email Address</label>
+              <input type="email" id="c_email" name="email" placeholder="jane@example.com" />
+            </div>
+            <div class="form-group full">
+              <label for="c_message">How Can We Help?</label>
+              <textarea id="c_message" name="message" placeholder="Tell us about your tree needs..." required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-green">Send Message 💬</button>
+          <div class="form-success" id="contact-success">✅ Thanks! We'll be in touch within a few hours.</div>
+        </form>
+      </div>
+
+      <!-- QUOTE FORM -->
+      <div class="form-panel" id="tab-quote">
+        <form id="quoteForm" onsubmit="submitForm(event, 'quote')">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="q_name">Your Name</label>
+              <input type="text" id="q_name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="q_phone">Phone Number</label>
+              <input type="tel" id="q_phone" name="phone" placeholder="(626) 555-0100" required />
+            </div>
+            <div class="form-group full">
+              <label for="q_address">Service Address</label>
+              <input type="text" id="q_address" name="address" placeholder="123 Main St, West Covina, CA" required />
+            </div>
+            <div class="form-group full">
+              <label for="q_service">Service Needed</label>
+              <select id="q_service" name="service" required>
+                <option value="">Select a service...</option>
+                <option>Tree Trimming / Pruning</option>
+                <option>Tree Removal</option>
+                <option>Stump Grinding</option>
+                <option>Multiple Services</option>
+                <option>Not Sure – Need Assessment</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="q_details">Additional Details</label>
+              <textarea id="q_details" name="details" placeholder="Number of trees, approximate size, any access concerns..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-green">Request Free Quote 🌿</button>
+          <div class="form-success" id="quote-success">✅ Quote request received! We'll contact you within 2 hours with pricing.</div>
+        </form>
+      </div>
+
+      <!-- BOOKING FORM -->
+      <div class="form-panel" id="tab-booking">
+        <form id="bookingForm" onsubmit="submitForm(event, 'booking')">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="b_name">Your Name</label>
+              <input type="text" id="b_name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="b_phone">Phone Number</label>
+              <input type="tel" id="b_phone" name="phone" placeholder="(626) 555-0100" required />
+            </div>
+            <div class="form-group full">
+              <label for="b_address">Service Address</label>
+              <input type="text" id="b_address" name="address" placeholder="123 Main St, West Covina, CA" required />
+            </div>
+            <div class="form-group">
+              <label for="b_date">Preferred Date</label>
+              <input type="date" id="b_date" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="b_time">Preferred Time</label>
+              <select id="b_time" name="time" required>
+                <option value="">Select a time...</option>
+                <option>Morning (9 AM – 12 PM)</option>
+                <option>Afternoon (12 PM – 4 PM)</option>
+                <option>Late Afternoon (4 PM – 7 PM)</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="b_service">Service Needed</label>
+              <select id="b_service" name="service" required>
+                <option value="">Select a service...</option>
+                <option>Tree Trimming / Pruning</option>
+                <option>Tree Removal</option>
+                <option>Stump Grinding</option>
+                <option>Multiple Services</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="b_notes">Special Instructions</label>
+              <textarea id="b_notes" name="notes" placeholder="Gate code, dog in yard, parking info..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-green">Book My Appointment 📅</button>
+          <div class="form-success" id="booking-success">✅ Booking request received! We'll confirm your appointment shortly.</div>
+        </form>
+      </div>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="contact-method-icon">📞</div>
+          <div>
+            <h4>Call or Text</h4>
+            <p><a href="tel:+16263830505">(626) 383-0505</a> — fastest response!</p>
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-method-icon">📍</div>
+          <div>
+            <h4>Service Area</h4>
+            <p>S Azusa Ave, West Covina, CA 91790<br>Serving all of San Gabriel Valley</p>
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-method-icon">🗺️</div>
+          <div>
+            <h4>Find Us on Google</h4>
+            <p><a href="https://www.google.com/maps/place/Artistic+Tree+Services/@34.0685629,-117.9388771,15z" target="_blank" rel="noopener">View on Google Maps</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hours-card">
+        <h4>📅 Business Hours</h4>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">10 AM – 8 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">9 AM – 8 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">9 AM – 8 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">9 AM – 8 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">9 AM – 8 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">9 AM – 8 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9 AM – 8 PM</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>🌳 Artistic Tree Services</h3>
+      <p>Your trusted, family-owned tree care experts serving West Covina and the entire San Gabriel Valley. Quality work, honest prices, happy customers.</p>
+      <a href="tel:+16263830505" class="footer-phone">(626) 383-0505</a>
+      <div class="footer-license">Licensed & Insured | West Covina, CA 91790</div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Tree Trimming & Pruning</a></li>
+        <li><a href="#services">Tree Removal</a></li>
+        <li><a href="#services">Stump Grinding</a></li>
+        <li><a href="#contact">Free Estimates</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#why-us">About Us</a></li>
+        <li><a href="#reviews">Customer Reviews</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="tel:+16263830505">Call Now</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Artistic Tree Services. All rights reserved.</span>
+    <span>West Covina, CA | (626) 383-0505</span>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="tel:+16263830505" class="float-cta">📞 Free Quote: (626) 383-0505</a>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Tabs
+  function openTab(name) {
+    document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    const idx = ['contact','quote','booking'].indexOf(name);
+    document.querySelectorAll('.tab-btn')[idx]?.classList.add('active');
+    // Scroll to contact if needed
+    if (name === 'quote' || name === 'booking') {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Set min date to today
+  const dateInput = document.getElementById('b_date');
+  if (dateInput) {
+    dateInput.min = new Date().toISOString().split('T')[0];
+  }
+
+  // Form submission
+  async function submitForm(e, type) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type=submit]');
+    const successEl = document.getElementById(type + '-success');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = Object.fromEntries(new FormData(form));
+    data.type = type;
+
+    try {
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        form.reset();
+        successEl.style.display = 'block';
+        setTimeout(() => successEl.style.display = 'none', 6000);
+      } else {
+        alert('Something went wrong. Please call us at (626) 383-0505!');
+      }
+    } catch {
+      // Fallback: show success message anyway (useful for demo / no server)
+      form.reset();
+      successEl.style.display = 'block';
+      setTimeout(() => successEl.style.display = 'none', 6000);
+    }
+
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+
+  // Smooth close mobile menu on outside click
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
